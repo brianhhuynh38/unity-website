@@ -16,5 +16,7 @@ public interface IMovementOption
     /// </summary>
     /// <param name="x_move">Horizontal input from the player</param>
     /// <param name="y_move">Vertical input from the player</param>
-    public void Move(float x_move, float y_move, Rigidbody rb);
+    /// <param name="jump">Detects if the player has pressed the key assigned to jump</param>
+    /// <param name="rb">The player's rigidbody component</param>
+    public void Move(float x_move, float y_move, bool jump, Rigidbody rb);
 }

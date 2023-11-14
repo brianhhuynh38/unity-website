@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once upon instantiation
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
-        move_option = new DefaultMovement();
+        move_option = new DefaultMovement2D();
     }
 
     // FixedUpdate is called at a rate specified by the editor
@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float x_move = Input.GetAxisRaw("Horizontal");
         float y_move = Input.GetAxisRaw("Vertical");
-        move_option.Move(x_move, y_move, rb);
+        bool jump = Input.GetButtonDown("Jump");
+        move_option.Move(x_move, y_move, jump, rb);
     }
 }
