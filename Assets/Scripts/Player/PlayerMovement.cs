@@ -13,11 +13,14 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     /// <summary>The player's current <see cref="IMovementOption"/>. The default option is <see cref="DefaultMovement"/> </summary>
     IMovementOption move_option;
+    /// <summary>Whether the player is groudned or not</summary>
+    bool is_grounded;
 
     // Start is called once upon instantiation
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
         move_option = new DefaultMovement2D();
+        is_grounded = false;
     }
 
     // FixedUpdate is called at a rate specified by the editor
@@ -26,6 +29,21 @@ public class PlayerMovement : MonoBehaviour
         float x_move = Input.GetAxisRaw("Horizontal");
         float y_move = Input.GetAxisRaw("Vertical");
         bool jump = Input.GetButtonDown("Jump");
-        move_option.Move(x_move, y_move, jump, rb);
+        move_option.Move(x_move, y_move, is_grounded, jump, rb);
+    }
+
+    void OnCollisionEnter(Collision other) {
+        switch(other.gameObject.tag) {
+            case "Floor":
+                is_grounded = true;
+                break;
+            default:
+                is_grounded = false;
+                break;
+        }
+    }
+
+    void OnCollisionExit(Collision other) {
+        is_grounded = false;
     }
 }
