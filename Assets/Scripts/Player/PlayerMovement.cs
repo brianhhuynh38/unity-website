@@ -13,25 +13,38 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     /// <summary>The player's current <see cref="IMovementOption"/>. The default option is <see cref="DefaultMovement"/> </summary>
     IMovementOption move_option;
-    /// <summary>Whether the player is groudned or not</summary>
-    bool is_grounded;
+    /// <summary>Whether the player is grounded or not</summary>
+    bool is_grounded = false;
+
+    float x_move;
+    float y_move;
+    bool jump_pressed;
+    bool jump_held;
 
     // Start is called once upon instantiation
     void Start() {
         rb = gameObject.GetComponent<Rigidbody>();
         move_option = new DefaultMovement2D();
-        is_grounded = false;
     }
 
-    // FixedUpdate is called at a rate specified by the editor
-    void FixedUpdate()
-    {
-        float x_move = Input.GetAxisRaw("Horizontal");
-        float y_move = Input.GetAxisRaw("Vertical");
-        bool jump = Input.GetButtonDown("Jump");
-        move_option.Move(x_move, y_move, is_grounded, jump, rb);
+    // Update is called at the beginning of every frame
+    void Update() {
+        // Get player inputs
+        x_move = Input.GetAxisRaw("Horizontal");
+        y_move = Input.GetAxisRaw("Vertical");
+        jump_pressed = Input.GetButtonDown("Jump");
+        jump_held = Input.GetButton("Jump");
     }
 
+    void LateUpdate() {
+        // Use the currently assigned movement option
+        move_option.Move(x_move, y_move, is_grounded, jump_pressed, jump_held, rb);
+    }
+
+    /// <summary>
+    ///    Runs whenever the player comes into contact with another collider
+    /// </summary>
+    /// <param name="other">The reference to the collision with info on the other object</param>
     void OnCollisionEnter(Collision other) {
         switch(other.gameObject.tag) {
             case "Floor":
@@ -43,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///    Runs whenever the player leaves contact with another collider
+    /// </summary>
+    /// <param name="other">The reference to the collision with info on the other object</param>
     void OnCollisionExit(Collision other) {
         is_grounded = false;
     }
