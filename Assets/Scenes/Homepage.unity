@@ -10235,7 +10235,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1522
+  m_Name: pb_Mesh-5070
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10470,8 +10470,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572187968}
-  m_LocalRotation: {x: 0.050658744, y: 0.0025372335, z: -0.00012869872, w: 0.9987128}
-  m_LocalPosition: {x: 1.6808901, y: 2.6005669, z: -7.119089}
+  m_LocalRotation: {x: 0.0702088, y: 0.12334189, z: -0.008748582, w: 0.9898389}
+  m_LocalPosition: {x: -0.2237978, y: 3.0053709, z: -7.679725}
   m_LocalScale: {x: 1, y: 1, z: 0.4687}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10877,7 +10877,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024964785}
-  m_LocalRotation: {x: 0.050658744, y: 0.0025372335, z: -0.00012869872, w: 0.9987128}
+  m_LocalRotation: {x: 0.0702088, y: 0.12334189, z: -0.008748582, w: 0.9898389}
   m_LocalPosition: {x: -0.2237978, y: 3.0053709, z: -7.679725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11109,7 +11109,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1486
+  m_Name: pb_Mesh-5034
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11280,7 +11280,7 @@ GameObject:
   - component: {fileID: 1533543433}
   - component: {fileID: 1533543435}
   m_Layer: 5
-  m_Name: BlueBGCover
+  m_Name: BlackBGCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11319,7 +11319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.76792455, g: 0.94198114, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
