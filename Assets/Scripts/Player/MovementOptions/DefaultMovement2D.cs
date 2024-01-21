@@ -15,45 +15,45 @@ public class DefaultMovement2D : IMovementOption
     /// <summary>The amount of force exerted when the player is shot into the air via the jump command</summary>
     const float JUMP_FORCE = 7f;
     /// <summary>The amount of time the player can hold JUMP for to continue adding force</summary>
-    int jump_timer = 0;
+    int jumpTimer = 0;
     /// <summary>If the player has started a jump</summary>
-    bool jump_initiated = false;
+    bool jumpInitiated = false;
 
-    public void Move(float x_move, float y_move, bool is_grounded, bool jump_pressed, bool jump_held, Rigidbody rb) {
+    public void Move(float xMove, float y_move, bool isGrounded, bool jumpPressed, bool jumpHeld, Rigidbody rb) {
         // Get x-axis input and move character horizontally
-        float x_mag =  Mathf.Clamp(
-            (x_move * ACCELERATION * Time.fixedDeltaTime) + rb.velocity.x,
+        float xMag =  Mathf.Clamp(
+            (xMove * ACCELERATION * Time.fixedDeltaTime) + rb.velocity.x,
             -MAX_SPEED,
             MAX_SPEED
             );
         // Apply gravity if the player is not grounded
-        float y_mag = 0;
-        if (is_grounded) {
-            jump_timer = 0;
+        float yMag = 0;
+        if (isGrounded) {
+            jumpTimer = 0;
             // Add jump force to the player's velocity if the jump key is pressed
-            if (jump_pressed) {
-                jump_timer++;
-                jump_initiated = true;
-                y_mag += JUMP_FORCE * 1.2f;
-                is_grounded = false;
-                Debug.Log($"jump, timer: {jump_timer}");
+            if (jumpPressed) {
+                jumpTimer++;
+                jumpInitiated = true;
+                yMag += JUMP_FORCE * 1.2f;
+                isGrounded = false;
+                Debug.Log($"jump, timer: {jumpTimer}");
             }
         }
         else { // If the player holds down jump, extends the amount of float time
-            if (jump_held && jump_initiated) {
+            if (jumpHeld && jumpInitiated) {
                 // Add additional height if the button is held
-                if (jump_timer % 30 == 0 && jump_timer <= 90 && jump_timer > 0) {
-                    y_mag += JUMP_FORCE / ((float) jump_timer / 10f);
-                    Debug.Log($"{jump_timer}");
+                if (jumpTimer % 30 == 0 && jumpTimer <= 90 && jumpTimer > 0) {
+                    yMag += JUMP_FORCE / ((float) jumpTimer / 10f);
+                    Debug.Log($"{jumpTimer}");
                 }
                 // Increment timer
-                jump_timer++;
+                jumpTimer++;
             } else {
-                jump_initiated = false;
+                jumpInitiated = false;
             }
         }
         // Set the player's new velocity
-        rb.velocity = new Vector3(x_mag, y_mag + rb.velocity.y, 0);
-        Debug.Log($"Velocity: {rb.velocity}, Speed: {x_mag}, Grounded: {is_grounded}, Jump: {jump_pressed}, Jump Timer: {jump_timer}");
+        rb.velocity = new Vector3(xMag, yMag + rb.velocity.y, 0);
+        Debug.Log($"Velocity: {rb.velocity}, Speed: {xMag}, Grounded: {isGrounded}, Jump: {jumpPressed}, Jump Timer: {jumpTimer}");
     }
 }

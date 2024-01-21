@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     /// <summary>The playable directors active in the scene</summary>
     public List<PlayableDirector> directors;
     /// <summary>Asynchronous operation to load the gallery scene</summary>
-    AsyncOperation gallery_async_load;
+    AsyncOperation galleryAsyncLoad;
 
     /// <summary>
     ///   Plays the transitional cutscene to the Gallery scene while asynchronously loading the scene
@@ -30,14 +30,14 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadGallery() {
         // Try to load scene until the cutscene allows
         yield return null;
-        gallery_async_load = SceneManager.LoadSceneAsync("Gallery");
-        gallery_async_load.allowSceneActivation = false;
+        galleryAsyncLoad = SceneManager.LoadSceneAsync("Gallery");
+        galleryAsyncLoad.allowSceneActivation = false;
     }
 
     /// <summary>
     ///   Allows the scene activation to occur for the gallery scene
     /// </summary>
     public void AllowLoadGallery() {
-        gallery_async_load.allowSceneActivation = true;
+        galleryAsyncLoad.allowSceneActivation = true;
     }
 }

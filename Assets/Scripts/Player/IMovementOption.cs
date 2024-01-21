@@ -10,15 +10,15 @@ using UnityEngine;
 public interface IMovementOption
 {
     /// <summary>
-    ///    A necessary function for any MovementOption object. Given <paramref name="x_move"/>,
-    ///    <paramref name="y_move"/>, and the player's RigidBody component (<paramref name="rb"/>),
+    ///    A necessary function for any MovementOption object. Given <paramref name="xMove"/>,
+    ///    <paramref name="yMove"/>, and the player's RigidBody component (<paramref name="rb"/>),
     ///    manipulates the player's velocity in the method best fit for the given scenario.
     /// </summary>
-    /// <param name="x_move">Horizontal input from the player</param>
-    /// <param name="y_move">Vertical input from the player</param>
-    /// <param name="is_grounded">If the player is touching a floor</param>
-    /// <param name="jump_pressed">Detects if the player has pressed the key assigned to jump</param>
-    /// <param name="jump_pressed">Detects if the player has held down the key assigned to jump</param>
+    /// <param name="xMove">Horizontal input from the player</param>
+    /// <param name="yMove">Vertical input from the player</param>
+    /// <param name="isGrounded">If the player is touching a floor</param>
+    /// <param name="jumpPressed">Detects if the player has pressed the key assigned to jump</param>
+    /// <param name="jumpHeld">Detects if the player has held down the key assigned to jump</param>
     /// <param name="rb">The player's rigidbody component</param>
-    public void Move(float x_move, float y_move, bool is_grounded, bool jump_pressed, bool jump_held, Rigidbody rb);
+    public void Move(float xMove, float yMove, bool isGrounded, bool jumpPressed, bool jumpHeld, Rigidbody rb);
 }
