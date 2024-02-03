@@ -4,7 +4,7 @@ using UnityEngine;
 
 /// <summary>
 ///    The default movement option for 2D sections where acceleration and deceleration are
-///    instantaneous.
+///    instantaneous. Currently not used.
 /// </summary>
 public class DefaultMovement2D : IMovementOption
 {

@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 ///    An interface inherited by any movement options meant for player control. Each option for movement 
 ///    can differ from being 2D or 3D and modifies the player's RigidBody component. This should also 
-///    control the animations for the character in each given scenario.
+///    control the animations for the character in each given scenario. Currently not used.
 /// </summary>
 public interface IMovementOption
 {
