@@ -11,31 +11,31 @@ namespace Website.Traditional.Animation {
     /// </summary>
     public class AnimationController : MonoBehaviour
     {
-        ///<summary>Attributes for the Sin Animation</summary>
-        [SerializeField] SinAnimation sinAnimation;
-        ///<summary>Attributes for the Size Change Animation</summary>
-        [SerializeField] SizeChangeAnimation sizeChangeAnimation;
+        ///<summary> Attributes for the Sin Animation </summary>
+        [SerializeField] private SinAnimation _sinAnimation;
+        ///<summary> Attributes for the Size Change Animation </summary>
+        [SerializeField] private SizeChangeAnimation _sizeChangeAnimation;
         
         // Start is called at the beginning of instantiation
         void Start() {
             // Set original reference points
-            sinAnimation.SetOriginalPosition(transform.position);
-            sizeChangeAnimation.SetOriginalScale(transform.localScale);
+            _sinAnimation.SetOriginalPosition(transform.position);
+            _sizeChangeAnimation.SetOriginalScale(transform.localScale);
         }
 
         // Update is called once per frame
         void Update() {
-            sinAnimation.Animate(transform);
-            sizeChangeAnimation.Animate(transform);
+            _sinAnimation.Animate(transform);
+            _sizeChangeAnimation.Animate(transform);
         }
 
         /// <summary>
         ///    An interface that describes the necessary functions for a simple animation: Animate and Reset
         /// </summary>
         private abstract class Animation {
-            /// <summary>Whether or not the animation should play</summary>
+            /// <summary> Whether or not the animation should play </summary>
             [SerializeField] public bool enabled;
-            /// <summary>Disables animation temporarily if true</summary>
+            /// <summary> Disables animation temporarily if true </summary>
             protected bool asleep;
             /// <summary>
             ///    Incrementally animates on each frame based on the factors necessary for a given Animation
@@ -61,13 +61,13 @@ namespace Website.Traditional.Animation {
         /// </summary>
         [Serializable]
         private class SinAnimation : Animation {
-            /// <summary>The height of the wave from the middle</summary>
+            /// <summary> The height of the wave from the middle </summary>
             [SerializeField] private float amplitude;
-            /// <summary>The width of each of the waves</summary>
+            /// <summary> The width of each of the waves </summary>
             [SerializeField] private float frequency;
-            /// <summary>The direction the animation will occur, will be (1, 0, 0) by default</summary>
+            /// <summary> The direction the animation will occur, will be (1, 0, 0) by default </summary>
             private Vector3 direction = new Vector3(1, 0, 0);
-            /// <summary>The original position of the Transform before the animation begins</summary>
+            /// <summary> The original position of the Transform before the animation begins </summary>
             private Vector3 originalPosition;
 
             public override void Animate(Transform tf) {

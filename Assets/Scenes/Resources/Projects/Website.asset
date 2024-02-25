@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070d70afc42acf74da2de032abf324a2, type: 3}
   m_Name: Website
   m_EditorClassIdentifier: 
-  projectType: 0
-  title: 
-  icon: {fileID: 0}
-  thumbnail: {fileID: 0}
-  briefDescription: 
-  credits: 
-  trophy: {fileID: 0}
+  _projectType: 0
+  _title: 
+  _icon: {fileID: 0}
+  _thumbnail: {fileID: 0}
+  _briefDescription: 
+  _details:
+  - _image: {fileID: 0}
+    _textContent: 
+    _reversed: 0
+  _design: []
+  _challenges: []
+  _credits: 
+  _trophy: {fileID: 0}
