@@ -32,7 +32,8 @@ namespace Website.Traditional.Animation {
         /// <summary>
         ///    An interface that describes the necessary functions for a simple animation: Animate and Reset
         /// </summary>
-        private abstract class Animation {
+        private abstract class Animation
+        {
             /// <summary> Whether or not the animation should play </summary>
             [SerializeField] public bool enabled;
             /// <summary> Disables animation temporarily if true </summary>
@@ -60,7 +61,8 @@ namespace Website.Traditional.Animation {
         ///    An animation class where the GameObject moves up and down in a Sin pattern using a Sin function
         /// </summary>
         [Serializable]
-        private class SinAnimation : Animation {
+        private class SinAnimation : Animation
+        {
             /// <summary> The height of the wave from the middle </summary>
             [SerializeField] private float amplitude;
             /// <summary> The width of each of the waves </summary>
@@ -95,7 +97,8 @@ namespace Website.Traditional.Animation {
         ///    An animation class where the GameObject scales either up or down in size
         /// </summary>
         [Serializable]
-        private class SizeChangeAnimation : Animation {
+        private class SizeChangeAnimation : Animation
+        {
             /// <summary>The amount that the scale is multiplied by</summary>
             [SerializeField] private float multiplier;
             /// <summary>The amount of offset required for the object vertically to avoid clipping</summary>

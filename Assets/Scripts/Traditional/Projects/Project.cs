@@ -1,5 +1,6 @@
 using UnityEngine;
 using Website.Traditional.Pages;
+using Website.Utilities;
 
 namespace Website.Traditional.Projects
 {
@@ -9,6 +10,8 @@ namespace Website.Traditional.Projects
     [CreateAssetMenu(menuName = "ScriptableObjects/Projects", fileName = "NewProject", order = 0)]
     public class Project : ScriptableObject
     {
+        /// <summary> The project's unique ID </summary>
+        [ScriptableObjectID, SerializeField] private string _uuid;
         /// <summary> The type of project </summary>
         [SerializeField] private ProjectType _projectType;
         /// <summary> The title of the project </summary>
@@ -30,6 +33,12 @@ namespace Website.Traditional.Projects
         /// <summary> The 3D trophy associated with the project </summary>
         [SerializeField] private GameObject _trophy;
 
+        /// <summary> The project's unique ID </summary>
+        public string UUID {
+            get {
+                return _uuid;
+            }
+        }
         /// <summary> The type of project </summary>
         public ProjectType ProjectType {
             get {
