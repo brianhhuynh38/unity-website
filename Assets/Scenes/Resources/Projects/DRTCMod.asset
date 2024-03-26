@@ -10,19 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 070d70afc42acf74da2de032abf324a2, type: 3}
-  m_Name: Website
+  m_Name: DRTCMod
   m_EditorClassIdentifier: 
-  _uuid: 125f59deec1fde447ae859751cdb1552
+  _uuid: 9ee0b962b55622f4192606d86486b8b2
   _projectType: 0
-  _title: Personal Website
+  _title: Death Road to Canada Mod
   _icon: {fileID: 0}
   _thumbnail: {fileID: 0}
-  _briefDescription: My personal website used to show off my projects. The website
-    you're currently on.
-  _details:
-  - _image: {fileID: 0}
-    _textContent: 
-    _reversed: 0
+  _briefDescription: A mod made for the game Death Road to Canada.
+  _details: []
   _design: []
   _challenges: []
   _credits: 

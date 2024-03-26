@@ -29,6 +29,7 @@ namespace Website.Traditional.Projects
         /// <summary> The thumbnail image displayed for each project on the display panel </summary>
         [SerializeField] private Image _thumbnail;
 
+        /// <summary> The types of tabs for the content panel </summary>
         private enum DisplayContentTabType { DETAILS, DESIGN, CHALLENGES, CREDITS }
 
         // Start is called before the first frame update
@@ -42,6 +43,7 @@ namespace Website.Traditional.Projects
             if (null == _titleBox | _descriptionBox | _contentScroll | _thumbnail) {
                 Debug.LogWarning("WARNING: Not all project UI elements are assigned!");
             }
+            ChangeSelectionTab(ProjectType.SCHOOL);
         }
 
         /// <summary>
@@ -58,14 +60,21 @@ namespace Website.Traditional.Projects
             _titleBox.text = project.Title;
             _descriptionBox.text = project.BriefDescription;
             _thumbnail.sprite = project.Thumbnail;
-            LoadContentTab(DisplayContentTabType.DETAILS, project);
+            ChangeContentTab(DisplayContentTabType.DETAILS, project);
         }
 
         /// <summary>
         ///    Loads the content for a given project for a certain tab
         /// </summary>
-        private void LoadContentTab(DisplayContentTabType tabChange, Project project) {
+        private void ChangeContentTab(DisplayContentTabType tabChange, Project project) {
             // TODO: Add all details to content scrollview
+        }
+
+        /// <summary>
+        ///    Loads the projects for a given ProjectType
+        /// </summary>
+        public void ChangeSelectionTab(ProjectType projectType) {
+            // TODO: Add all details to selection scrollview
         }
     }
 }
